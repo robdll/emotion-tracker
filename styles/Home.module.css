@@ -20,9 +20,15 @@
 .videoWrapper {
   position: relative;
   width: 100%;
-  height: 480px;
-  max-width: 640px;
+  height: auto;
   margin: 0 auto;
+  max-width: 640px;
+}
+
+.videoWrapper video {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 .videoWrapper.on {
