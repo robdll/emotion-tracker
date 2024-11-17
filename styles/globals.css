@@ -1,7 +1,9 @@
 :root {
   --foreground: #171717;
   --font-primary-color: #ff4d6d;
+  --font-primary-shade-color: #a32246;
   --font-secondary-color: #4dfcff;
+  --font-secondary-shade-color: #37b5b8;
 }
 
 @media (prefers-color-scheme: dark) {

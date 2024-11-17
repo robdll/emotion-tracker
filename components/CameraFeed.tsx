@@ -86,10 +86,10 @@ const CameraFeed: React.FC = () => {
 
   return (
     <>
-      <button onClick={handleBtnClick} className={styles.btn}>
+      <button onClick={handleBtnClick} className={`${styles.btn} ${isCameraOn ? styles.on : '' }`}>
         {isCameraOn ? 'Stop' : 'Start'} Camera
       </button>
-      <div className={styles.videoWrapper}>
+      <div className={`${styles.videoWrapper} ${isCameraOn ? styles.on : '' }`}>
         <video
           ref={videoRef}
           autoPlay

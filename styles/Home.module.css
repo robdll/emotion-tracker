@@ -26,32 +26,53 @@
   margin: 0 auto;
 }
 
+.videoWrapper.on {
+  box-shadow: 0px 0 20px 3px var(--font-primary-color);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
 .btn {
   cursor: pointer;
   font-size: .8rem;
   color: #fff;
   background: transparent;
-  border: 2px solid var(--font-primary-color);
+  border: 2px solid var(--font-secondary-color);
   border-radius: 8px;
   padding: 10px 20px;
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  text-shadow: 0 0 5px var(--font-primary-color), 0 0 10px var(--font-primary-color);
+  text-shadow: 0 0 5px var(--font-secondary-color), 0 0 10px var(--font-secondary-color);
   transition: all 0.3s ease;
 }
 
+.btn.on{
+  border: 2px solid var(--font-primary-color);
+  text-shadow: 0 0 5px var(--font-primary-color), 0 0 10px var(--font-primary-color);
+}
+
 .btn:hover {
-  background: var(--font-primary-color);
+  background: var(--font-secondary-color);
   color: #000;
-  box-shadow: 0 0 10px var(--font-primary-color), 0 0 20px var(--font-primary-color), 0 0 40px var(--font-primary-color);
+  box-shadow: 0 0 10px var(--font-secondary-color), 0 0 20px var(--font-secondary-color), 0 0 40px var(--font-secondary-color);
   transform: scale(1.05);
 }
 
+.btn.on:hover {
+  background: var(--font-primary-color);
+  box-shadow: 0 0 10px var(--font-primary-color), 0 0 20px var(--font-primary-color), 0 0 40px var(--font-primary-color);
+}
+
 .btn:active {
-  background: #a32246;
+  background: var(--font-secondary-shade-color);
   color: #fff;
-  box-shadow: 0 0 5px #a32246, 0 0 10px #a32246;
+  box-shadow: 0 0 5px var(--font-secondary-shade-color), 0 0 10px var(--font-secondary-shade-color);
   transform: scale(0.95);
+}
+
+.btn.on:active {
+  background: #a32246;
+  box-shadow: 0 0 5px #a32246, 0 0 10px #a32246;
 }
 
 .canvas {
