@@ -42,7 +42,6 @@ const CameraFeed: React.FC = () => {
       isCameraOnRef.current = false;
     }
     if (canvasRef.current) {
-      console.log('Clearing canvas');
       const context = canvasRef.current.getContext('2d');
       context?.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
     }
@@ -103,7 +102,7 @@ const CameraFeed: React.FC = () => {
         ></video>
         <canvas
           ref={canvasRef}
-          className={styles.canvas}
+          className={`${styles.canvas} ${!isCameraOn ? styles.off : '' }`}
         ></canvas>
       </div>
     </>

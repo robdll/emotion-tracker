@@ -82,6 +82,10 @@
   height: 100%;
 }
 
+.canvas.off {
+  display: none;
+}
+
 @keyframes neonGlow {
   50% {
     text-shadow: 0 0 10px #ff4d6d, 0 0 20px #ff4d6d, 0 0 30px #ff4d6d;
