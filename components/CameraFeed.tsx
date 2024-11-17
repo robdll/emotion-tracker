@@ -6,6 +6,7 @@ const CameraFeed: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [isCameraOn, setIsCameraOn] = useState(false);
+  const isCameraOnRef = useRef(false);
 
   useEffect(() => {
     const loadModels = async () => {
@@ -21,8 +22,11 @@ const CameraFeed: React.FC = () => {
       const stream = await navigator.mediaDevices.getUserMedia({ video: true });
       if (videoRef.current) {
         videoRef.current.srcObject = stream;
-        setIsCameraOn(true);
-        detectEmotions();
+        isCameraOnRef.current = true;
+        videoRef.current.onloadedmetadata = () => {
+          detectEmotions();
+          setIsCameraOn(true);
+        };
       }
     } catch (error) {
       console.error('Error accessing the camera:', error);
@@ -35,6 +39,7 @@ const CameraFeed: React.FC = () => {
       stream?.getTracks().forEach((track) => track.stop());
       videoRef.current.srcObject = null;
       setIsCameraOn(false);
+      isCameraOnRef.current = false;
     }
   };
 
@@ -53,7 +58,8 @@ const CameraFeed: React.FC = () => {
     faceapi.matchDimensions(canvas, displaySize);
 
     setInterval(async () => {
-      if (!isCameraOn) return; // Stop detection when the camera is off
+
+      if (!isCameraOnRef.current) return; // Stop detection when the camera is off
 
       const detections = await faceapi
         .detectAllFaces(video, new faceapi.TinyFaceDetectorOptions())
@@ -66,6 +72,7 @@ const CameraFeed: React.FC = () => {
         faceapi.draw.drawDetections(canvas, resizedDetections);
         faceapi.draw.drawFaceExpressions(canvas, resizedDetections);
       }
+
     }, 100);
   };
 
