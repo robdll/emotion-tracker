@@ -47,6 +47,9 @@ const CameraFeed: React.FC = () => {
     const canvas = canvasRef.current;
     const displaySize = { width: video.width, height: video.height };
 
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+    
     faceapi.matchDimensions(canvas, displaySize);
 
     setInterval(async () => {
@@ -63,7 +66,7 @@ const CameraFeed: React.FC = () => {
         faceapi.draw.drawDetections(canvas, resizedDetections);
         faceapi.draw.drawFaceExpressions(canvas, resizedDetections);
       }
-    }, 100);
+    }, 500);
   };
 
   const handleBtnClick = () => {
@@ -88,6 +91,18 @@ const CameraFeed: React.FC = () => {
           height="100%"
           style={{ display: isCameraOn ? 'block' : 'none' }}
         ></video>
+        <canvas
+          ref={canvasRef}
+          width="100%"
+          height="100%"
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+          }}
+        ></canvas>
       </div>
       
     </>
