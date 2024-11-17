@@ -6,9 +6,9 @@
   gap: 32px;
   padding-top: 20px;
   font-size: 1rem;
-  color: #ff4d6d; 
+  color: var(--font-primary-color); 
   text-transform: uppercase; 
-  text-shadow: 0 0 10px #ff4d6d, 0 0 20px #ff4d6d, 0 0 30px #ff4d6d;
+  text-shadow: 0 0 10px var(--font-primary-color), 0 0 20px var(--font-primary-color), 0 0 30px var(--font-primary-color);
   margin-bottom: 20px;
   letter-spacing: 2px; 
   text-align: center; 
