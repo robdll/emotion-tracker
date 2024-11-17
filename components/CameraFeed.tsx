@@ -41,6 +41,11 @@ const CameraFeed: React.FC = () => {
       setIsCameraOn(false);
       isCameraOnRef.current = false;
     }
+    if (canvasRef.current) {
+      console.log('Clearing canvas');
+      const context = canvasRef.current.getContext('2d');
+      context?.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
+    }
   };
 
   const detectEmotions = async () => {

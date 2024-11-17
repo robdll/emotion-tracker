@@ -3,13 +3,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 32px;
-  padding-top: 20px;
+  gap: 40px;
   font-size: 1rem;
   color: var(--font-primary-color); 
   text-transform: uppercase; 
   text-shadow: 0 0 10px var(--font-primary-color), 0 0 20px var(--font-primary-color), 0 0 30px var(--font-primary-color);
-  margin-bottom: 20px;
+  margin-top: 32px;
   letter-spacing: 2px; 
   text-align: center; 
 }
