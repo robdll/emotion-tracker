@@ -22,8 +22,6 @@ const CameraFeed: React.FC = () => {
       if (videoRef.current) {
         videoRef.current.srcObject = stream;
         setIsCameraOn(true);
-
-        // Start detection when camera starts
         detectEmotions();
       }
     } catch (error) {
@@ -45,11 +43,13 @@ const CameraFeed: React.FC = () => {
 
     const video = videoRef.current;
     const canvas = canvasRef.current;
-    const displaySize = { width: video.width, height: video.height };
 
+    // Match canvas size to video size
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
-    
+
+    const displaySize = { width: video.videoWidth, height: video.videoHeight };
+
     faceapi.matchDimensions(canvas, displaySize);
 
     setInterval(async () => {
@@ -66,45 +66,34 @@ const CameraFeed: React.FC = () => {
         faceapi.draw.drawDetections(canvas, resizedDetections);
         faceapi.draw.drawFaceExpressions(canvas, resizedDetections);
       }
-    }, 500);
+    }, 100);
   };
 
   const handleBtnClick = () => {
-    if (isCameraOn){
+    if (isCameraOn) {
       stopCamera();
-    } else{
+    } else {
       startCamera();
     }
-  }
+  };
 
   return (
     <>
       <button onClick={handleBtnClick} className={styles.btn}>
-        {isCameraOn ? 'Stop': 'Start'} Camera
+        {isCameraOn ? 'Stop' : 'Start'} Camera
       </button>
       <div className={styles.videoWrapper}>
         <video
           ref={videoRef}
           autoPlay
           muted
-          width="100%"
-          height="100%"
           style={{ display: isCameraOn ? 'block' : 'none' }}
         ></video>
         <canvas
           ref={canvasRef}
-          width="100%"
-          height="100%"
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-          }}
+          className={styles.canvas}
         ></canvas>
       </div>
-      
     </>
   );
 };
