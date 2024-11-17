@@ -5,6 +5,17 @@
   align-items: center;
   gap: 32px;
   padding-top: 20px;
+  font-size: 1rem;
+  color: #ff4d6d; 
+  text-transform: uppercase; 
+  text-shadow: 0 0 10px #ff4d6d, 0 0 20px #ff4d6d, 0 0 30px #ff4d6d;
+  margin-bottom: 20px;
+  letter-spacing: 2px; 
+  text-align: center; 
+}
+
+.main h1 {
+  animation: neonGlow 6s infinite;
 }
 
 .videoWrapper {
@@ -19,4 +30,40 @@
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
+}
+
+
+@keyframes neonGlow {
+  50% {
+    text-shadow: 0 0 10px #ff4d6d, 0 0 20px #ff4d6d, 0 0 30px #ff4d6d;
+    color: #ff4d6d;
+  }
+  58% {
+    text-shadow: 0 0 10px #4dfcff, 0 0 20px #4dfcff, 0 0 30px #4dfcff;
+    color: #4dfcff;
+  }
+  68% {
+    text-shadow: 0 0 10px #ff4d6d, 0 0 20px #ff4d6d, 0 0 30px #ff4d6d;
+    color: #ff4d6d;
+  }
+  70% {
+    text-shadow: 0 0 10px #4dfcff, 0 0 20px #4dfcff, 0 0 30px #4dfcff;
+    color: #4dfcff;
+  }
+  72% {
+    text-shadow: 0 0 10px #ff4d6d, 0 0 20px #ff4d6d, 0 0 30px #ff4d6d;
+    color: #ff4d6d;
+  }
+  74% {
+    text-shadow: 0 0 10px #4dfcff, 0 0 20px #4dfcff, 0 0 30px #4dfcff;
+    color: #4dfcff;
+  }
+  76% {
+    text-shadow: 0 0 10px #ff4d6d, 0 0 20px #ff4d6d, 0 0 30px #ff4d6d;
+    color: #ff4d6d;
+  }
+  100% {
+    text-shadow: 0 0 10px #ff4d6d, 0 0 20px #ff4d6d, 0 0 30px #ff4d6d;
+    color: #ff4d6d;
+  }
 }
